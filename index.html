@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو عِزوة | EZWA Collection</title>
+    <!-- خط عربي أنيق -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: #050508;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 40%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        /* الهالة المتحركة حول الحاوية الرئيسية */
+        .card-wrapper {
+            position: relative;
+            padding: 3px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #d4af37, #1e1e2f, #8a2be2, #d4af37);
+            background-size: 300% 300%;
+            animation: borderGlow 6s ease infinite;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* الزجاج الشفاف الداخلي */
+        .card-inner {
+            background: rgba(15, 15, 22, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 25px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* الهيدر */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .brand-logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(to left, #fff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .brand-subtitle {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+        }
+
+        /* تبويبات التبديل بين التيشيرتات والبناطيل */
+        .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 5px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #d4af37, #aa8c2c);
+            color: #050508;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* قوائم المنتجات */
+        .product-section {
+            display: none;
+        }
+
+        .product-section.active {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* بطاقة المنتج */
+        .product-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .product-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 15px;
+            font-weight: 900;
+            color: #d4af37;
+        }
+
+        /* زر الطلب عبر الواتساب */
+        .order-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            white-space: nowrap;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+
+        /* تذييل المنيو */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="card-wrapper">
+            <div class="card-inner">
+                <!-- هيدر المتجر -->
+                <div class="header">
+                    <div class="brand-logo">عِزوة | EZWA</div>
+                    <div class="brand-subtitle">المنيو الرقمي - تشكيلة الرجال الفاخرة</div>
+                </div>
+
+                <!-- أزرار التبديل -->
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('tees', this)">تيشيرتات بوكسي</button>
+                    <button class="tab-btn" onclick="switchTab('pants', this)">بنطلونات أوفرسايز</button>
+                </div>
+
+                <!-- قسم التيشيرتات (5 موديلات) -->
+                <div id="tees" class="product-section active">
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">تيشيرت بوكسي - المصمك الذهبي</div>
+                            <div class="product-desc">قطن ثقيل عالي الجودة - طباعة DTF فاخرة</div>
+                            <div class="product-price">180 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (تيشيرت بوكسي - المصمك الذهبي) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">تيشيرت بوكسي - طويق كلاسيك</div>
+                            <div class="product-desc">قماش قطن معزز - تصميم هادئ وعصري</div>
+                            <div class="product-price">170 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (تيشيرت بوكسي - طويق كلاسيك) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">تيشيرت بوكسي - سدو التراث</div>
+                            <div class="product-desc">مزين بتطريز وطباعة سدو عصرية على الأكمام</div>
+                            <div class="product-price">190 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (تيشيرت بوكسي - سدو التراث) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">تيشيرت بوكسي - إيتشن بريميوم</div>
+                            <div class="product-desc">وزن ثقيل (GSM عالي) - قصة واسعة راقية</div>
+                            <div class="product-price">185 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (تيشيرت بوكسي - إيتشن بريميوم) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">تيشيرت بوكسي - ليجند أسود</div>
+                            <div class="product-desc">تصميم ليلي فاخر مع شعار عِزوة البارز</div>
+                            <div class="product-price">175 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (تيشيرت بوكسي - ليجند أسود) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+                </div>
+
+                <!-- قسم البنطلونات الأوفرسايز (5 موديلات) -->
+                <div id="pants" class="product-section">
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">بنطلون أوفرسايز - فلو كارجو</div>
+                            <div class="product-desc">جيوب جانبية متعددة - قصة واسعة مريحة</div>
+                            <div class="product-price">220 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (بنطلون أوفرسايز - فلو كارجو) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">بنطلون أوفرسايز - إيتشن ستريت</div>
+                            <div class="product-desc">خامة قطنية سميكة تناسب الإطلالات اليومية</div>
+                            <div class="product-price">210 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (بنطلون أوفرسايز - إيتشن ستريت) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">بنطلون أوفرسايز - ريلاكس أسود</div>
+                            <div class="product-desc">تصميم انسيابي مريح بحزام مرن فاخر</div>
+                            <div class="product-price">200 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (بنطلون أوفرسايز - ريلاكس أسود) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">بنطلون أوفرسايز - أوربان لوك</div>
+                            <div class="product-desc">نمط عصري حديث بقصة فضفاضة متناسقة</div>
+                            <div class="product-price">230 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (بنطلون أوفرسايز - أوربان لوك) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-info">
+                            <div class="product-title">بنطلون أوفرسايز - رويال كلاسيك</div>
+                            <div class="product-desc">تشكيلة فاخرة فائقة النعومة والتحمل</div>
+                            <div class="product-price">240 ر.س</div>
+                        </div>
+                        <a href="https://wa.me/966510205330?text=السلام عليكم، أريد طلب (بنطلون أوفرسايز - رويال كلاسيك) بنظام الحبة." target="_blank" class="order-btn">
+                            <i class="fa-brands fa-whatsapp"></i> اطلب
+                        </a>
+                    </div>
+                </div>
+
+                <!-- التذييل -->
+                <div class="footer">
+                    جميع الحقوق محفوظة © عِزوة EZWA 2026
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // دالة التبديل بين التبويبات
+        function switchTab(sectionId, btnElement) {
+            // إزالة التنشيط من كل الأزرار والأقسام
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.product-section').forEach(sec => sec.classList.remove('active'));
+
+            // تنشيط الزر والقسم المستهدف
+            btnElement.classList.add('active');
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

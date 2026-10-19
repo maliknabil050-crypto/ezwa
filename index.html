@@ -52,7 +52,7 @@
 
         /* الزجاج الشفاف الداخلي */
         .card-inner {
-            background: rgba(15, 15, 22, 0.65);
+            background: rgba(15, 15, 22, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 28px;
@@ -128,10 +128,10 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 18px;
-            padding: 15px;
+            padding: 12px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 15px;
             transition: all 0.3s ease;
         }
 
@@ -141,25 +141,35 @@
             transform: translateY(-2px);
         }
 
+        /* صورة المنتج الافتراضية */
+        .product-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: #1a1a2e;
+        }
+
         .product-info {
             flex: 1;
         }
 
         .product-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .product-desc {
-            font-size: 12px;
+            font-size: 11px;
             color: rgba(255, 255, 255, 0.55);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .product-price {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 900;
             color: #d4af37;
         }
@@ -169,14 +179,14 @@
             background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
             border: none;
-            padding: 10px 16px;
+            padding: 8px 12px;
             border-radius: 12px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
@@ -217,6 +227,7 @@
                 <!-- قسم التيشيرتات (5 موديلات) -->
                 <div id="tees" class="product-section active">
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300&auto=format&fit=crop&q=60" alt="تيشيرت" class="product-img">
                         <div class="product-info">
                             <div class="product-title">تيشيرت بوكسي - المصمك الذهبي</div>
                             <div class="product-desc">قطن ثقيل عالي الجودة - طباعة DTF فاخرة</div>
@@ -228,6 +239,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=300&auto=format&fit=crop&q=60" alt="تيشيرت" class="product-img">
                         <div class="product-info">
                             <div class="product-title">تيشيرت بوكسي - طويق كلاسيك</div>
                             <div class="product-desc">قماش قطن معزز - تصميم هادئ وعصري</div>
@@ -239,6 +251,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&auto=format&fit=crop&q=60" alt="تيشيرت" class="product-img">
                         <div class="product-info">
                             <div class="product-title">تيشيرت بوكسي - سدو التراث</div>
                             <div class="product-desc">مزين بتطريز وطباعة سدو عصرية على الأكمام</div>
@@ -250,6 +263,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=300&auto=format&fit=crop&q=60" alt="تيشيرت" class="product-img">
                         <div class="product-info">
                             <div class="product-title">تيشيرت بوكسي - إيتشن بريميوم</div>
                             <div class="product-desc">وزن ثقيل (GSM عالي) - قصة واسعة راقية</div>
@@ -261,6 +275,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=300&auto=format&fit=crop&q=60" alt="تيشيرت" class="product-img">
                         <div class="product-info">
                             <div class="product-title">تيشيرت بوكسي - ليجند أسود</div>
                             <div class="product-desc">تصميم ليلي فاخر مع شعار عِزوة البارز</div>
@@ -275,6 +290,7 @@
                 <!-- قسم البنطلونات الأوفرسايز (5 موديلات) -->
                 <div id="pants" class="product-section">
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&auto=format&fit=crop&q=60" alt="بنطلون" class="product-img">
                         <div class="product-info">
                             <div class="product-title">بنطلون أوفرسايز - فلو كارجو</div>
                             <div class="product-desc">جيوب جانبية متعددة - قصة واسعة مريحة</div>
@@ -286,6 +302,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=300&auto=format&fit=crop&q=60" alt="بنطلون" class="product-img">
                         <div class="product-info">
                             <div class="product-title">بنطلون أوفرسايز - إيتشن ستريت</div>
                             <div class="product-desc">خامة قطنية سميكة تناسب الإطلالات اليومية</div>
@@ -297,6 +314,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&auto=format&fit=crop&q=60" alt="بنطلون" class="product-img">
                         <div class="product-info">
                             <div class="product-title">بنطلون أوفرسايز - ريلاكس أسود</div>
                             <div class="product-desc">تصميم انسيابي مريح بحزام مرن فاخر</div>
@@ -308,6 +326,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&auto=format&fit=crop&q=60" alt="بنطلون" class="product-img">
                         <div class="product-info">
                             <div class="product-title">بنطلون أوفرسايز - أوربان لوك</div>
                             <div class="product-desc">نمط عصري حديث بقصة فضفاضة متناسقة</div>
@@ -319,6 +338,7 @@
                     </div>
 
                     <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=300&auto=format&fit=crop&q=60" alt="بنطلون" class="product-img">
                         <div class="product-info">
                             <div class="product-title">بنطلون أوفرسايز - رويال كلاسيك</div>
                             <div class="product-desc">تشكيلة فاخرة فائقة النعومة والتحمل</div>
@@ -341,11 +361,9 @@
     <script>
         // دالة التبديل بين التبويبات
         function switchTab(sectionId, btnElement) {
-            // إزالة التنشيط من كل الأزرار والأقسام
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.product-section').forEach(sec => sec.classList.remove('active'));
 
-            // تنشيط الزر والقسم المستهدف
             btnElement.classList.add('active');
             document.getElementById(sectionId).classList.add('active');
         }
